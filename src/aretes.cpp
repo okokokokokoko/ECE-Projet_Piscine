@@ -1,14 +1,14 @@
 #include <iostream>
 #include "aretes.h"
 
-Aretes::Aretes(std::string ida,std::string S1,std::string S2,double poids1,double poids2):m_ida{ida},m_s1{S1},m_s2{S2},m_p1{poids1},m_p2{poids2}
+Aretes::Aretes(int ida,int S1,int S2,double poids1,double poids2):m_ida{ida},m_s1{S1},m_s2{S2},m_p1{poids1},m_p2{poids2}
 {
 
 }
-std::string Aretes::getS1()
+int Aretes::getS1()
 {return m_s1;
 }
-std::string Aretes::getS2()
+int Aretes::getS2()
 {return m_s2;
 }
 
@@ -23,7 +23,7 @@ double Aretes::getpoids2()
 {return m_p2;
 }
 
-std::string Aretes::getida()
+int Aretes::getida()
 {return m_ida;
 }
 

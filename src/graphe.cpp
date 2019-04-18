@@ -14,7 +14,7 @@ graphe::graphe(std::string nomFichier1,std::string nomFichier2)
     ifs >> ordre;
     if ( ifs.fail() )
         throw std::runtime_error("Probleme lecture ordre du graphe");
-    std::string id;
+    int id;
     double x,y;
     //lecture des sommets
     for (int i=0; i<ordre; ++i)
@@ -28,11 +28,11 @@ graphe::graphe(std::string nomFichier1,std::string nomFichier2)
     ifs >> taille;
     if ( ifs.fail() )
         throw std::runtime_error("Probleme lecture taille du graphe");
-    std::string id_voisin;
+    int id_voisin;
     //lecture des aretes
-    std::string ida;
-    std::string S1;
-    std::string S2;
+    int ida;
+    int S1;
+    int S2;
     float poids1;
     float poids2;
     double taille1;
@@ -86,10 +86,10 @@ void graphe::dessiner(Svgfile &svgout)
     }
     for (auto a: m_aretes)
     {
-        std::string b=a.second->getS1();
+        int b=a.second->getS1();
         Sommet* b2=m_sommets.at(b);
 
-        std::string c=a.second->getS2();
+        int c=a.second->getS2();
         Sommet* c2=m_sommets.at(c);
         svgout.addLine(b2->getx(),b2->gety(),c2->getx(),c2->gety(),"blue");
     }
