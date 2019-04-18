@@ -15,11 +15,12 @@ class graphe
         graphe(std::string,std::string);
         ~graphe();
         void afficher() const;
-        void kruskal() const;
-        int trouver_sommet(int);
-        //void bruteforce() const;
+        void kruskal(Svgfile &svgout) const;
+       // int trouver_sommet(int);
+        //void bruteforce(std::vector<>) const;
         void dessiner(Svgfile &svgout) ;
-        void attribuerbinaire();
+        //void attribuerbinaire();
+        int getidg();
 
 
 
@@ -33,7 +34,7 @@ class graphe
 
         int *cc;
         //std::vector<vector<int>> v2;
-
+            int idg;
 
 
 };

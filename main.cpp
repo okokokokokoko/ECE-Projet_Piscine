@@ -9,7 +9,7 @@ int main()
     graphe g{"broadway.txt","broadway_poids.txt"};
     g.afficher();
     g.dessiner(svgout);
-    g.kruskal();
+    g.kruskal(svgout);
     return 0;
 }
 

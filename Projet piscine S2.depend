@@ -83,16 +83,16 @@
 	<unordered_map>
 	<unordered_set>
 
-1555516013 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\svgfile.cpp
+1555621484 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\svgfile.cpp
 	<iostream>
 	<sstream>
 
-1555606520 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\main.cpp
+1555615611 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\main.cpp
 	<iostream>
 	"graphe.h"
 	"svgfile.h"
 
-1555600838 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\graphe.h
+1555632105 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\graphe.h
 	<string>
 	<unordered_map>
 	<vector>
@@ -102,15 +102,16 @@
 
 1555588542 _map>
 
-1555516013 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\svgfile.h
+1555621475 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\svgfile.h
 	<string>
 	<fstream>
 	<set>
 
-1555608598 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\graphe.cpp
+1555632330 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\graphe.cpp
 	<fstream>
 	<iostream>
 	<algorithm>
+	<vector>
 	"graphe.h"
 	"aretes.h"
 	"svgfile.h"

@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <vector>
 #include "graphe.h"
 #include "aretes.h"
 #include "svgfile.h"
@@ -93,17 +94,11 @@ void graphe::dessiner(Svgfile &svgout)
         svgout.addLine(b2->getx(),b2->gety(),c2->getx(),c2->gety(),"blue");
     }
 
-}
-/*
-int graphe::trouver_sommet(int i)
-{
-    if (i == cc[i])
-        return i;
-    else
-        return trouver_sommet(cc[i-1]);///récursivité
-}*/
 
-void graphe::kruskal() const
+}
+
+
+void graphe::kruskal(Svgfile &svgout) const
 {
     std::vector<Aretes*> T;
     std::vector<Aretes*> m_a;
@@ -158,26 +153,75 @@ void graphe::kruskal() const
         }
         j++;
     }while(cptaretes<ordre-1);
+int sx1, sx2, sy1, sy2, x_max = 0;
+for(auto& a:T)
+{
+    if(m_sommets.find(a->getS1())->second->getx() > x_max)
+        x_max = m_sommets.find(a->getS1())->second->getx();
+    if(m_sommets.find(a->getS2())->second->getx() > x_max)
+        x_max = m_sommets.find(a->getS2())->second->getx();
+}
+x_max *= 2;
+for(auto& a:T)
+{
+    sx1 = m_sommets.find(a->getS1())->second->getx();
+    sy1 = m_sommets.find(a->getS1())->second->gety();
+    sx2 = m_sommets.find(a->getS2())->second->getx();
+    sy2 = m_sommets.find(a->getS2())->second->gety();
 
+    svgout.addLine(x_max + sx1,sy1,x_max + sx2,sy2,"red");
+    svgout.addText(x_max+ 0.5*(sx1+sx2),0.5*(sy1+sy2),std::to_string(a->getpoids1()),"black");
+}
 }
 
 /*
-void graphe::bruteforce() const
-{int ordre;
+std::vector<graphe>;
+graphe::bruteforce(std::vector<graphe> graphes) const
+{ std::vector<graphe> resultat;
+for (auto g:graphes){
+    std::vector<Sommet*> v_sommetnonconnexe;
+ //std::vector<>v2;
+ std::vector<Sommet*> v_sommetconnexe;
+     for (auto a:m_aretes)
+    {
+     v_sommetconnexe.push_back(a->getS1());
+     v_sommetconnexe.push_back(a->getS2());
+    }
+    for (auto b:m_sommets)
+    { bool contenu = false;
+         for(auto c:v_sommetconnexe)
+        if (c == b)
+        contenu = true;
+    if(!contenu)
+        v_sommetnonconnexe.push_back(b);
+    }
+    if(v_sommetnonconnexe.size()==0)
+        {
+            int ordre=m_sommets.size();
+    if(m_aretes.size()== m_sommets.size()-1)
+    {
+     resultat.push_back(g);
+    }
+        }
+return resultat;
+}
+int ordre;
 for (int i=0;i< ordre;i++;)
 v1.pushback
 {if (ordre!=ordre-1)
 
 };
-}*/
-
+}
+*/
 /*void graphe::attribuerbinaire()
 {
     for (auto b: m_aretes)
         v1.push_back(b.second->getida());
     int taille1==v1.size();
 }*/
-
+graphe::getidg()
+{return idg;
+}
 graphe::~graphe()
 {
 }
