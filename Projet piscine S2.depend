@@ -1,0 +1,90 @@
+# depslib dependency file v1.0
+1555424780 source:c:\users\jorda\onedrive\documents\tdg\projet piscine s2\main.cpp
+	<iostream>
+	"graphe.h"
+
+1555424815 c:\users\jorda\onedrive\documents\tdg\projet piscine s2\include\graphe.h
+	<string>
+	<unordered_map>
+	"sommet.h"
+	"aretes.h"
+
+1555421375 c:\users\jorda\onedrive\documents\tdg\projet piscine s2\include\sommet.h
+	<string>
+	<vector>
+	<unordered_map>
+	<unordered_set>
+
+1555426109 c:\users\jorda\onedrive\documents\tdg\projet piscine s2\include\aretes.h
+	<vector>
+	<string>
+	<unordered_map>
+	<unordered_set>
+
+1555426109 source:c:\users\jorda\onedrive\documents\tdg\projet piscine s2\src\aretes.cpp
+	<iostream>
+	"aretes.h"
+
+1555428426 source:c:\users\jorda\onedrive\documents\tdg\projet piscine s2\src\graphe.cpp
+	<fstream>
+	<iostream>
+	"graphe.h"
+	"aretes.h"
+
+1555421375 source:c:\users\jorda\onedrive\documents\tdg\projet piscine s2\src\sommet.cpp
+	<iostream>
+	<unordered_map>
+	<unordered_set>
+	"sommet.h"
+
+1555588543 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\aretes.cpp
+	<iostream>
+	"aretes.h"
+
+1555588543 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\aretes.h
+	<vector>
+	<string>
+	<unordered_map>
+	<unordered_set>
+
+1555588542 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\sommet.cpp
+	<iostream>
+	<unordered_map>
+	<unordered_set>
+	"sommet.h"
+
+1555588541 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\sommet.h
+	<string>
+	<vector>
+	<unordered_map>
+	<unordered_set>
+
+1555516013 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\svgfile.cpp
+	<iostream>
+	<sstream>
+
+1555499565 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\main.cpp
+	<iostream>
+	"graphe.h"
+	"svgfile.h"
+
+1555588542 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\graphe.h
+	<string>
+	<unordered_map>
+	<vector>
+	"sommet.h"
+	"aretes.h"
+	"svgfile.h"
+
+1555516013 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\svgfile.h
+	<string>
+	<fstream>
+	<set>
+
+1555595249 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\graphe.cpp
+	<fstream>
+	<iostream>
+	"graphe.h"
+	"aretes.h"
+	"svgfile.h"
+
