@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 #include "graphe.h"
 #include "aretes.h"
 #include "svgfile.h"
@@ -94,6 +95,28 @@ void graphe::dessiner(Svgfile &svgout)
         svgout.addLine(b2->getx(),b2->gety(),c2->getx(),c2->gety(),"blue");
     }
 
+}
+
+void graphe::kruskal() const
+{
+    std::vector<Aretes*> m_a;
+    for(auto s: m_aretes){
+        m_a.push_back(s.second);
+    }
+    std::sort(m_a.begin(),m_a.end(), [](Aretes* a1, Aretes* a2)
+              {
+                  return (a1->getpoids1() < a2->getpoids1());
+              }
+              );
+
+              std::cout<<" taille " <<m_aretes.size()<<std::endl;
+                for(auto s : m_a)
+                {
+                    std::cout << "aretes triees : ";
+                    s->afficherData();
+
+                    std::cout<< std::endl;
+                };
 }
 /*
 void graphe::bruteforce() const

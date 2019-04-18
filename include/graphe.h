@@ -15,6 +15,7 @@ class graphe
         graphe(std::string,std::string);
         ~graphe();
         void afficher() const;
+        void kruskal() const;
         //void bruteforce() const;
         void dessiner(Svgfile &svgout) ;
         void attribuerbinaire();

@@ -9,6 +9,7 @@ int main()
     graphe g{"manhattan.txt","manhattan_poids.txt"};
     g.afficher();
     g.dessiner(svgout);
+    g.kruskal();
     return 0;
 }
 
