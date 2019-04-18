@@ -16,6 +16,7 @@ class graphe
         ~graphe();
         void afficher() const;
         void kruskal() const;
+        int trouver_sommet(int);
         //void bruteforce() const;
         void dessiner(Svgfile &svgout) ;
         void attribuerbinaire();
@@ -29,6 +30,8 @@ class graphe
         std::unordered_map<int,Sommet*> m_sommets;//stockée dans une map (clé=id du sommet, valeur= pointeur sur le sommet)
         std::unordered_map<int,Aretes*> m_aretes;
         std::vector<int> v1;
+
+        int *cc;
         //std::vector<vector<int>> v2;
 
 

@@ -29,7 +29,6 @@ graphe::graphe(std::string nomFichier1,std::string nomFichier2)
     ifs >> taille;
     if ( ifs.fail() )
         throw std::runtime_error("Probleme lecture taille du graphe");
-    int id_voisin;
     //lecture des aretes
     int ida;
     int S1;
@@ -52,7 +51,6 @@ graphe::graphe(std::string nomFichier1,std::string nomFichier2)
         fs2>>poids1;
         fs2>>poids2;
         m_aretes.insert({ida,new Aretes{ida,S1,S2,poids1,poids2}});
-
     }
 
 }
@@ -96,28 +94,73 @@ void graphe::dessiner(Svgfile &svgout)
     }
 
 }
+/*
+int graphe::trouver_sommet(int i)
+{
+    if (i == cc[i])
+        return i;
+    else
+        return trouver_sommet(cc[i-1]);///récursivité
+}*/
 
 void graphe::kruskal() const
 {
+    std::vector<Aretes*> T;
     std::vector<Aretes*> m_a;
-    for(auto s: m_aretes){
+    for(auto s: m_aretes)
+    {
         m_a.push_back(s.second);
     }
     std::sort(m_a.begin(),m_a.end(), [](Aretes* a1, Aretes* a2)
-              {
-                  return (a1->getpoids1() < a2->getpoids1());
-              }
-              );
+    {
+        return (a1->getpoids1() < a2->getpoids1());
+    }
+             );
 
-              std::cout<<" taille " <<m_aretes.size()<<std::endl;
-                for(auto s : m_a)
+    std::cout<<" taille " <<m_aretes.size()<<std::endl;
+    for(auto s : m_a)
+    {
+        s->afficherData();
+
+        std::cout<< std::endl;
+    };
+
+    int ordre=m_sommets.size();
+    int i=0;
+    for(auto element:m_sommets)
                 {
-                    std::cout << "aretes triees : ";
-                    s->afficherData();
+                        element.second->putCC(i);
+                        i++;
+                }
 
-                    std::cout<< std::endl;
-                };
+    int cptaretes=0,j=0;
+
+    do
+    {
+            int cc1,cc2;
+            ///attribuer à chaque sommet un numéro de composante connexe
+            cc1 = (m_sommets.find(m_a[j]->getS1()))->second->getCC();
+            cc2 = (m_sommets.find(m_a[j]->getS2()))->second->getCC();
+
+            if (cc1 != cc2)
+            {
+                std::cout<<m_a[j]->getida()<<std::endl;
+                T.push_back(m_a[j]); ///on ajoute la donnée à l'arbre
+                ///cc[cc2];///tableau de connexité
+                (m_sommets.find(m_a[j]->getS2()))->second->putCC(cc1);
+                cptaretes++;
+                for(auto element:m_sommets)
+                {
+                    if(element.second->getCC()==cc2)
+                        element.second->putCC(cc1);
+                }
+
+        }
+        j++;
+    }while(cptaretes<ordre-1);
+
 }
+
 /*
 void graphe::bruteforce() const
 {int ordre;
@@ -128,12 +171,12 @@ v1.pushback
 };
 }*/
 
-void graphe::attribuerbinaire()
+/*void graphe::attribuerbinaire()
 {
     for (auto b: m_aretes)
         v1.push_back(b.second->getida());
-    int taille1=v1.size();
-}
+    int taille1==v1.size();
+}*/
 
 graphe::~graphe()
 {

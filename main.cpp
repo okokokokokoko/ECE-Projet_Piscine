@@ -6,7 +6,7 @@
 int main()
 {
    Svgfile svgout;
-    graphe g{"manhattan.txt","manhattan_poids.txt"};
+    graphe g{"broadway.txt","broadway_poids.txt"};
     g.afficher();
     g.dessiner(svgout);
     g.kruskal();

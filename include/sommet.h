@@ -14,6 +14,8 @@ class Sommet
         void afficherData() const;
         void afficherVoisins() const;
         double getx(), gety();
+        int getCC();
+        void putCC(int cc);
 
         ~Sommet();
 
@@ -24,9 +26,8 @@ class Sommet
         std::vector<const Sommet*> m_voisins;
 
         /// Données spécifiques du sommet
-        int m_id; // Identifiant
+        int m_id,m_cc; // Identifiant
         double m_x, m_y; // Position
-        int composanteconnexe;
 
 };
 

@@ -5,6 +5,7 @@
 
 Sommet::Sommet(int id,double x,double y):m_id{id},m_x{x},m_y{y}
 {
+    m_cc=0;
 }
 void Sommet::ajouterVoisin(const Sommet* voisin)
 {
@@ -28,6 +29,15 @@ double Sommet::getx()
 double Sommet::gety()
 {
 return m_y;
+}
+int Sommet::getCC()
+{
+    return m_cc;
+}
+
+void Sommet::putCC(int cc)
+{
+     m_cc=cc;
 }
 
 Sommet::~Sommet()

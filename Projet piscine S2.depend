@@ -39,13 +39,15 @@
 
 1555537309 ated upstream
 
-1555519953 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\aretes.cpp
-	<iostream>
-	"aretes.h"
+1555596377 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\aretes.cpp
 	<iostream>
 	"aretes.h"
 
-1555519953 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\aretes.h
+1555596377 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\aretes.h
+	<vector>
+	<string>
+	<unordered_map>
+	<unordered_set>
 
 1555516014 shed changes
 	<vector>
@@ -69,25 +71,34 @@
 	"aretes.h"
 	"svgfile.h"
 
-1555440917 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\sommet.cpp
+1555607898 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\sommet.cpp
+	<iostream>
+	<unordered_map>
+	<unordered_set>
+	"sommet.h"
 
-1555440779 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\sommet.h
+1555607898 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\sommet.h
+	<string>
+	<vector>
+	<unordered_map>
+	<unordered_set>
 
 1555516013 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\svgfile.cpp
 	<iostream>
 	<sstream>
 
-1555499565 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\main.cpp
+1555606520 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\main.cpp
 	<iostream>
 	"graphe.h"
 	"svgfile.h"
 
-1555537309 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\graphe.h
+1555600838 c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\include\graphe.h
 	<string>
 	<unordered_map>
 	<vector>
-	<string>
-	<unordered_map>
+	"sommet.h"
+	"aretes.h"
+	"svgfile.h"
 
 1555588542 _map>
 
@@ -96,7 +107,13 @@
 	<fstream>
 	<set>
 
-1555537309 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\graphe.cpp
+1555608598 source:c:\users\sam\downloads\projet piscine s2 (2)\projet piscine s2\src\graphe.cpp
+	<fstream>
+	<iostream>
+	<algorithm>
+	"graphe.h"
+	"aretes.h"
+	"svgfile.h"
 
 1555598842 source:c:\users\adels\desktop\projet piscine s2\main.cpp
 	<iostream>
