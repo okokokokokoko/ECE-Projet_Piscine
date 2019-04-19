@@ -34,7 +34,10 @@ int Sommet::getCC()
 {
     return m_cc;
 }
-
+int Sommet::getid()
+{
+    return m_id;
+}
 void Sommet::putCC(int cc)
 {
      m_cc=cc;

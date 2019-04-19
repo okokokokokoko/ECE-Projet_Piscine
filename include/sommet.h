@@ -16,7 +16,7 @@ class Sommet
         double getx(), gety();
         int getCC();
         void putCC(int cc);
-
+        int getid();
         ~Sommet();
 
     protected:

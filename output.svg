@@ -10,12 +10,9 @@
 <line x1="100" y1="100" x2="100" y2="200" stroke="blue" />
 <line x1="200" y1="100" x2="100" y2="200" stroke="blue" />
 <line x1="200" y1="100" x2="200" y2="200" stroke="blue" />
-<line x1="500" y1="100" x2="500" y2="200" stroke="red" />
-<text x="500" y="150" fill="black" >2.000000</text>
-<line x1="600" y1="100" x2="500" y2="200" stroke="red" />
-<text x="550" y="150" fill="black" >3.000000</text>
-<line x1="500" y1="200" x2="600" y2="200" stroke="red" />
-<text x="550" y="200" fill="black" >6.000000</text>
+<line x1="100" y1="100" x2="100" y2="200" stroke="red" />
+<line x1="200" y1="100" x2="100" y2="200" stroke="red" />
+<line x1="100" y1="200" x2="200" y2="200" stroke="red" />
   
 
 <defs>

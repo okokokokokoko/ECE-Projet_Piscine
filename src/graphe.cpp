@@ -169,28 +169,51 @@ for(auto& a:T)
     sx2 = m_sommets.find(a->getS2())->second->getx();
     sy2 = m_sommets.find(a->getS2())->second->gety();
 
-    svgout.addLine(x_max + sx1,sy1,x_max + sx2,sy2,"red");
-    svgout.addText(x_max+ 0.5*(sx1+sx2),0.5*(sy1+sy2),std::to_string(a->getpoids1()),"black");
+    //svgout.addLine(x_max + sx1,sy1,x_max + sx2,sy2,"red");
+    svgout.addLine(sx1,sy1,sx2,sy2,"red");
+    //svgout.addText(x_max+ 0.5*(sx1+sx2),0.5*(sy1+sy2),std::to_string(a->getpoids1()),"black");
 }
 }
 
 /*
-std::vector<graphe>;
-graphe::bruteforce(std::vector<graphe> graphes) const
-{ std::vector<graphe> resultat;
-for (auto g:graphes){
-    std::vector<Sommet*> v_sommetnonconnexe;
- //std::vector<>v2;
- std::vector<Sommet*> v_sommetconnexe;
+std::vector<Aretes*> graphe_in;
+ std::vector<Aretes*> graphe::bruteforce(std::vector<Aretes*> graphe_in)
+{ std::vector<Aretes*> resultat;
+for (auto g:graphe_in){
+    std::vector<int> v_sommetnonconnexe;
+    std::vector<int> v_sommetconnexe;
      for (auto a:m_aretes)
     {
-     v_sommetconnexe.push_back(a->getS1());
-     v_sommetconnexe.push_back(a->getS2());
+    // v_sommetconnexe.push_back(a.second->getS1());
+     v_sommetconnexe.push_back(a.second->getS2());
     }
+       do
+    {
+            int cc1,cc2;
+            ///attribuer à chaque sommet un numéro de composante connexe
+            cc1 = (m_sommets.find(m_aretes->getS1()))->second->getCC();
+            cc2 = (m_sommets.find(m_aretes->getS2()))->second->getCC();
+
+            if (cc1 != cc2)
+            {
+                std::cout<<m_aretes->getida()<<std::endl;
+                v_sommetconnexe.push_back(m_aretes); ///on ajoute la donnée à l'arbre
+                ///cc[cc2];///tableau de connexité
+                (m_sommets.find(m_aretes->getS2()))->second->putCC(cc1);
+                cptaretes++;
+                for(auto element:m_sommets)
+                {
+                    if(element.second->getCC()==cc2)
+                        element.second->putCC(cc1);
+                }
+
+        }
+        j++;
+    }while(cptaretes<ordre-1);
     for (auto b:m_sommets)
     { bool contenu = false;
-         for(auto c:v_sommetconnexe)
-        if (c == b)
+         for(int i=0; i<v_sommetconnexe.size(); ++i)
+        if (v_sommetconnexe[i] == b.second->getid())
         contenu = true;
     if(!contenu)
         v_sommetnonconnexe.push_back(b);
@@ -212,15 +235,20 @@ v1.pushback
 
 };
 }
-*/
-/*void graphe::attribuerbinaire()
-{
-    for (auto b: m_aretes)
-        v1.push_back(b.second->getida());
-    int taille1==v1.size();
-}*/
+
 graphe::getidg()
 {return idg;
+}*/
+
+
+std::vector<std::vector<bool>> tab;
+int pb;
+int c;
+for(pb=0;pb<=m_aretes.size();pb++)
+{
+    for(c=0;c<std::pow(2,m_aretes.size());c++)
+    { tab[c].pushback((c>>pb)&1);
+        }
 }
 graphe::~graphe()
 {

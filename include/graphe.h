@@ -16,11 +16,9 @@ class graphe
         ~graphe();
         void afficher() const;
         void kruskal(Svgfile &svgout) const;
-       // int trouver_sommet(int);
-        //void bruteforce(std::vector<>) const;
+        //std::vector<Aretes*> bruteforce(std::vector<Aretes*>);
         void dessiner(Svgfile &svgout) ;
-        //void attribuerbinaire();
-        int getidg();
+        //int getidg();
 
 
 
@@ -30,11 +28,11 @@ class graphe
         /// Le réseau est constitué d'une collection de sommets
         std::unordered_map<int,Sommet*> m_sommets;//stockée dans une map (clé=id du sommet, valeur= pointeur sur le sommet)
         std::unordered_map<int,Aretes*> m_aretes;
-        std::vector<int> v1;
+
+        //std::vector<int> v1;
 
         int *cc;
-        //std::vector<vector<int>> v2;
-            int idg;
+        //int idg;
 
 
 };
