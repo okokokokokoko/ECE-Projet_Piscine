@@ -10,6 +10,7 @@ int main()
     g.afficher();
     g.dessiner(svgout);
     g.kruskal(svgout);
+    g.rendrebinaire();
     return 0;
 }
 

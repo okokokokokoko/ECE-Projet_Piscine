@@ -123,56 +123,57 @@ void graphe::kruskal(Svgfile &svgout) const
     int ordre=m_sommets.size();
     int i=0;
     for(auto element:m_sommets)
-                {
-                        element.second->putCC(i);
-                        i++;
-                }
+    {
+        element.second->putCC(i);
+        i++;
+    }
 
     int cptaretes=0,j=0;
 
     do
     {
-            int cc1,cc2;
-            ///attribuer à chaque sommet un numéro de composante connexe
-            cc1 = (m_sommets.find(m_a[j]->getS1()))->second->getCC();
-            cc2 = (m_sommets.find(m_a[j]->getS2()))->second->getCC();
+        int cc1,cc2;
+        ///attribuer à chaque sommet un numéro de composante connexe
+        cc1 = (m_sommets.find(m_a[j]->getS1()))->second->getCC();
+        cc2 = (m_sommets.find(m_a[j]->getS2()))->second->getCC();
 
-            if (cc1 != cc2)
+        if (cc1 != cc2)
+        {
+            std::cout<<m_a[j]->getida()<<std::endl;
+            T.push_back(m_a[j]); ///on ajoute la donnée à l'arbre
+            ///cc[cc2];///tableau de connexité
+            (m_sommets.find(m_a[j]->getS2()))->second->putCC(cc1);
+            cptaretes++;
+            for(auto element:m_sommets)
             {
-                std::cout<<m_a[j]->getida()<<std::endl;
-                T.push_back(m_a[j]); ///on ajoute la donnée à l'arbre
-                ///cc[cc2];///tableau de connexité
-                (m_sommets.find(m_a[j]->getS2()))->second->putCC(cc1);
-                cptaretes++;
-                for(auto element:m_sommets)
-                {
-                    if(element.second->getCC()==cc2)
-                        element.second->putCC(cc1);
-                }
+                if(element.second->getCC()==cc2)
+                    element.second->putCC(cc1);
+            }
 
         }
         j++;
-    }while(cptaretes<ordre-1);
-int sx1, sx2, sy1, sy2, x_max = 0;
-for(auto& a:T)
-{
-    if(m_sommets.find(a->getS1())->second->getx() > x_max)
-        x_max = m_sommets.find(a->getS1())->second->getx();
-    if(m_sommets.find(a->getS2())->second->getx() > x_max)
-        x_max = m_sommets.find(a->getS2())->second->getx();
-}
-x_max *= 2;
-for(auto& a:T)
-{
-    sx1 = m_sommets.find(a->getS1())->second->getx();
-    sy1 = m_sommets.find(a->getS1())->second->gety();
-    sx2 = m_sommets.find(a->getS2())->second->getx();
-    sy2 = m_sommets.find(a->getS2())->second->gety();
+    }
+    while(cptaretes<ordre-1);
+    int sx1, sx2, sy1, sy2, x_max = 0;
+    for(auto& a:T)
+    {
+        if(m_sommets.find(a->getS1())->second->getx() > x_max)
+            x_max = m_sommets.find(a->getS1())->second->getx();
+        if(m_sommets.find(a->getS2())->second->getx() > x_max)
+            x_max = m_sommets.find(a->getS2())->second->getx();
+    }
+    x_max *= 2;
+    for(auto& a:T)
+    {
+        sx1 = m_sommets.find(a->getS1())->second->getx();
+        sy1 = m_sommets.find(a->getS1())->second->gety();
+        sx2 = m_sommets.find(a->getS2())->second->getx();
+        sy2 = m_sommets.find(a->getS2())->second->gety();
 
-    //svgout.addLine(x_max + sx1,sy1,x_max + sx2,sy2,"red");
-    svgout.addLine(sx1,sy1,sx2,sy2,"red");
-    //svgout.addText(x_max+ 0.5*(sx1+sx2),0.5*(sy1+sy2),std::to_string(a->getpoids1()),"black");
-}
+        //svgout.addLine(x_max + sx1,sy1,x_max + sx2,sy2,"red");
+        svgout.addLine(sx1,sy1,sx2,sy2,"red");
+        //svgout.addText(x_max+ 0.5*(sx1+sx2),0.5*(sy1+sy2),std::to_string(a->getpoids1()),"black");
+    }
 }
 
 /*
@@ -240,15 +241,28 @@ graphe::getidg()
 {return idg;
 }*/
 
-
-std::vector<std::vector<bool>> tab;
-int pb;
-int c;
-for(pb=0;pb<=m_aretes.size();pb++)
+void graphe::rendrebinaire()
 {
-    for(c=0;c<std::pow(2,m_aretes.size());c++)
-    { tab[c].pushback((c>>pb)&1);
+
+    std::vector<std::vector<bool>> tab;
+    int pb;
+    int c;
+    for(pb=0; pb<m_aretes.size(); pb++)
+    {
+        for(c=0; c<pow(2,m_aretes.size()); c++)
+        {
+            tab[c].push_back((c>>pb)&1);
         }
+    }
+    for(int i=0; i<pow(2,m_aretes.size()); i++)
+    {
+        for (int j=0; j<m_aretes.size(); j++)
+        {
+            std::cout<<tab[i][j]<<" "<<std::endl;
+        }
+
+    }
+    std::cout<<std::endl;
 }
 graphe::~graphe()
 {

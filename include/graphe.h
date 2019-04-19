@@ -14,6 +14,8 @@ class graphe
         //format du fichier ordre/liste des sommets/taille/liste des arêtes
         graphe(std::string,std::string);
         ~graphe();
+        void rendrebinaire();
+
         void afficher() const;
         void kruskal(Svgfile &svgout) const;
         //std::vector<Aretes*> bruteforce(std::vector<Aretes*>);
