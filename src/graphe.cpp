@@ -62,7 +62,7 @@ void graphe::afficher() const
     for(auto s : m_sommets)
     {
         s.second->afficherData();
-///        s.second->afficherVoisins();
+//       s.second->afficherVoisins();
         std::cout << std::endl;
     };
 
@@ -237,14 +237,11 @@ v1.pushback
 };
 }
 
-graphe::getidg()
-{return idg;
-}*/
-
-void graphe::rendrebinaire()
+*/
+std::vector<std::vector<bool>> graphe::rendrebinaire()
 {
 
-    std::vector<std::vector<bool>> tab;
+    std::vector<std::vector<bool>>tab(pow(2,m_aretes.size()));
     int pb;
     int c;
     for(pb=0; pb<m_aretes.size(); pb++)
@@ -258,12 +255,62 @@ void graphe::rendrebinaire()
     {
         for (int j=0; j<m_aretes.size(); j++)
         {
-            std::cout<<tab[i][j]<<" "<<std::endl;
+            std::cout<<tab[i][j]<<std::endl;
         }
+        std::cout<<std::endl;
 
     }
-    std::cout<<std::endl;
+    return tab;
+
+
 }
+
+void graphe::filtre1()
+{
+    std::vector<std::vector<bool>> m_tab;
+    m_tab = rendrebinaire();
+    int cpt = 0;
+    int taille= m_aretes.size();
+    int ordre= m_sommets.size();
+    int i, j;
+    int nbsolutions = pow(2, taille);
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::vector<std::vector<bool>> tabfiltre1;
+    for (i=0; i<nbsolutions; i++)
+    {
+
+        std::vector<bool> tab = m_tab[i];
+        cpt = 0;
+        for (j=0; j<taille; j++)
+        {
+            if (tab[j] == true)
+            {
+                cpt = cpt+1;
+
+            }
+        }
+
+        if (cpt == (ordre-1))
+        {
+            tabfiltre1.push_back(tab);
+        }
+    }
+    std::cout << std::endl;
+    std::cout << "Filtrage des ordre-1 Aretes  " << tabfiltre1.size()  <<"  combinaison restantes"<< std::endl;
+    for (i=0; i<tabfiltre1.size(); i++)
+    {
+        std::vector<bool> m_listeFiltrer = tabfiltre1[i];
+        for (j=taille-1; j>=0; j--)
+        {
+            std::cout << m_listeFiltrer[j] ;
+        }
+        std::cout << std::endl;
+    }
+}
+
+
 graphe::~graphe()
 {
 }
